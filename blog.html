@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部落格</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>部落格</h1>
+    <div id="app">
+        <div class="addBlog">
+            <span>標題：</span><input type="text" id="blogTitle" v-model="newTitle">
+            <br>
+            <br>
+            <span id="blogContentTitle">內文：</span><textarea id="blogContent" v-model="newContent" cols="33" rows="5"
+                required></textarea>
+        </div>
+        <div>
+            <button @click="createBlog(newTitle, newContent)">新增</button>
+        </div>
+        <hr>
+        <div class="blogList" v-for="item in posts">
+            <div id="item-show" v-if="editingItem!==item">
+                <div class="blogMain">
+                    <div>
+                        <h2>{{item.blogTitle}}</h2>
+                    </div>
+                    <p>{{item.blogContent}}</p>
+                </div>
+                <div class="blogButton">
+                    <button
+                        @click="editingItem = item; editingTitle = item.blogTitle; editingContent=item.blogContent">編輯</button>
+                    <button @click="deleteBlog(item)">刪除</button>
+                </div>
+            </div>
+            <div id="item-edit" v-if="editingItem === item">
+                <div class="blogMain">
+                    <span>標題：</span><input type="text" v-model="editingTitle">
+                    <br>
+                    <span id="editContentTitle">內文：</span><textarea v-model="editingContent" cols="33"
+                        rows="4"></textarea>
+                </div>
+                <div class="blogButton">
+                    <button @click="editingItem = {}">取消</button>
+                    <button @click="editBlog(item)">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="all.js"></script>
+</body>
+
+</html>

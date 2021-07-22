@@ -1,0 +1,97 @@
+h1{
+    text-align: center;
+}
+
+.addBlog {
+    width: 320px;
+    margin: auto;
+}
+
+.addBlog+div {
+    text-align: center;
+}
+
+#blogTitle {
+    width: 240px;
+}
+
+#blogContentTitle {
+    vertical-align: top;
+}
+
+/* blogList */
+
+h2, p {
+    margin: 0;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+h2 {
+    line-height: 2;
+}
+
+.blogList {
+    max-width: 1000px;
+    margin: auto;
+}
+
+#item-show, #item-edit {
+    display: flex;
+    margin: 20px;
+}
+
+.blogMain {
+    flex-basis: 0;
+    flex-grow: 8;
+    border: 1px solid #aaa;
+    height: 100px;
+    overflow: auto;
+}
+
+.blogButton {
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.blogButton button {
+    height: 50%;
+    border-radius: 25px;
+}
+
+.blogButton button:nth-child(1) {
+    margin-bottom: 5px;
+}
+
+#item-show .blogMain div:nth-child(1) {
+    background-color: #ccc;
+}
+
+#item-show p {
+    white-space: pre;
+}
+
+#item-show button {
+    background-color: blanchedalmond;
+}
+
+#item-show button:hover {
+    background-color: crimson;
+}
+
+#item-edit input {
+    width: 240px;
+    height: 30px;
+}
+
+#item-edit button:hover {
+    background-color: #000;
+    color: #fff
+}
+
+#editContentTitle {
+    vertical-align: top;
+}

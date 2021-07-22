@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>1. 將'1354756223110'形式的字符串，以每3位進行分隔'1,354,756,223,110'</h3>
+    <p>數字：<span id="num">1354756223110</span></p>
+    <button id="button_1">每3位數加入 , 進行分隔</button>
+    <p id="showNum">&emsp;</p>
+
+    <h3>2. “I am a student”反轉成“student a am I”，不借助任何庫函式</h3>
+    <p>文字：<span id="txt">I am a student</span></p>
+    <button id="button_2">翻轉文字順序</button>
+    <p id="showTxt">&emsp;</p>
+
+    <h3>3. 實做一個簡易部落格，可以進行文章的CRUD
+    </h3>
+    <p><a href="blog.html">部落格連結</a></p>
+
+    <script>
+        // 1. 將'1354756223110'形式的字符串，以每3位進行分隔'1,354,756,223,110'
+        const num = document.getElementById('num').textContent
+        const button_1 = document.getElementById('button_1')
+        const showNum = document.getElementById('showNum')
+        button_1.addEventListener('click', function () {
+            showNum.textContent = num.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+        })
+
+        // 2. “I am a student”反轉成“student a am I”，不借助任何庫函式
+        const txt = document.getElementById('txt').textContent
+        const button_2 = document.getElementById('button_2')
+        const showTxt = document.getElementById('showTxt')
+        button_2.addEventListener('click', function () {
+            const separateTxt = txt.split(' ')
+            const reverseTxt = separateTxt.reverse()
+            const newTxt = reverseTxt.join(' ')
+            showTxt.textContent = newTxt
+        })
+
+    </script>
+</body>
+
+</html>
